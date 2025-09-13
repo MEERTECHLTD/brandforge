@@ -1,0 +1,51 @@
+version: '3.8'
+
+services:
+  # Frontend application
+  brandforge-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:80"
+    environment:
+      - NODE_ENV=production
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  # Optional: API server (uncomment if needed)
+  # brandforge-api:
+  #   image: node:18-alpine
+  #   working_dir: /app
+  #   volumes:
+  #     - ./api:/app
+  #   ports:
+  #     - "3001:3001"
+  #   command: npm start
+  #   environment:
+  #     - NODE_ENV=production
+  #     - DATABASE_URL=${DATABASE_URL}
+  #   restart: unless-stopped
+
+  # Optional: Database (uncomment if needed)
+  # database:
+  #   image: postgres:15-alpine
+  #   environment:
+  #     - POSTGRES_DB=brandforge
+  #     - POSTGRES_USER=${DB_USER}
+  #     - POSTGRES_PASSWORD=${DB_PASSWORD}
+  #   volumes:
+  #     - postgres_data:/var/lib/postgresql/data
+  #   restart: unless-stopped
+
+# volumes:
+#   postgres_data:
+
+networks:
+  default:
+    name: brandforge-network

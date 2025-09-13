@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import { Upload, Move, Scissors, Palette, Type, Package, Sparkles, Undo, Redo, Save, Camera, Layers, Zap, Eye, RotateCcw } from 'lucide-react';
+import { Move, Scissors, Palette, Type, Package, Sparkles, Undo, Redo, Save, Camera, Layers, Zap, Eye } from 'lucide-react';
 import { EditingTool } from '../types';
 
 interface ProductCraftProps {
@@ -44,8 +44,8 @@ export const ProductCraft: React.FC<ProductCraftProps> = ({ onBack }) => {
     }
   };
 
-  const getToolIcon = (iconName: string) => {
-    const iconMap: { [key: string]: React.ComponentType<any> } = {
+  const getToolIcon = (iconName: string): React.ComponentType<React.SVGProps<SVGSVGElement>> => {
+    const iconMap: { [key: string]: React.ComponentType<React.SVGProps<SVGSVGElement>> } = {
       Package, Layers, Zap, Sparkles, Scissors, Palette, Type, Move
     };
     return iconMap[iconName] || Package;

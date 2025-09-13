@@ -17,7 +17,7 @@ function App() {
     setCurrentStep('craft');
   };
 
-  const handleOpenProject = (project: Project) => {
+  const handleOpenProject = (_project: Project) => {
     setCurrentView('craft');
     setCurrentStep('craft');
   };

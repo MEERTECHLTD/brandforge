@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Instagram, Facebook, Linkedin, Twitter, Download, Eye, Copy, Calendar, Hash, AtSign } from 'lucide-react';
-import { SocialMediaPost } from '../types';
 
 interface SocialMediaPostsProps {
   onBack: () => void;

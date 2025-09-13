@@ -31,8 +31,8 @@ export const ImageEditor: React.FC<ImageEditorProps> = ({ onBack }) => {
     }
   };
 
-  const getToolIcon = (iconName: string) => {
-    const iconMap: { [key: string]: React.ComponentType<any> } = {
+  const getToolIcon = (iconName: string): React.ComponentType<React.SVGProps<SVGSVGElement>> => {
+    const iconMap: { [key: string]: React.ComponentType<React.SVGProps<SVGSVGElement>> } = {
       Move, Scissors, ImageIcon, Palette, Type, Sparkles
     };
     return iconMap[iconName] || Move;

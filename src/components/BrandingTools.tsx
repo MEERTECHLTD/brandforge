@@ -7,7 +7,7 @@ interface BrandingToolsProps {
 
 export const BrandingTools: React.FC<BrandingToolsProps> = ({ onBack }) => {
   const [brandColors, setBrandColors] = useState(['#3B82F6', '#10B981', '#F59E0B']);
-  const [logo, setLogo] = useState<string | null>(null);
+  const [_logo] = useState<string | null>(null);
 
   const socialPlatforms = [
     { name: 'Instagram Post', size: '1080×1080', template: 'square' },
@@ -77,9 +77,9 @@ export const BrandingTools: React.FC<BrandingToolsProps> = ({ onBack }) => {
               <Upload className="w-5 h-5 text-green-600" />
               <h3 className="text-lg font-semibold">Brand Logo</h3>
             </div>
-            {logo ? (
+            {_logo ? (
               <div className="text-center">
-                <img src={logo} alt="Brand logo" className="w-24 h-24 mx-auto mb-3 object-contain" />
+                <img src={_logo} alt="Brand logo" className="w-24 h-24 mx-auto mb-3 object-contain" />
                 <button className="text-blue-600 hover:text-blue-700 text-sm">
                   Replace Logo
                 </button>
